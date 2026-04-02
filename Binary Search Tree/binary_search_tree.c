@@ -40,6 +40,17 @@ void display(NODE* root)
     printf("%d",root->info);
     if(root->right!=NULL)   display(root->right);
 }
+NODE* delete(NODE* root,int value)
+{
+    if(root==NULL) return; //there is no tree 
+    // search for the value recursively
+    else if(value<root->info)    root->left = delete(root->left,value);
+    else if(value>root->info)   root->right = delete(root->right,value);
+    else
+    {
+        
+    }
+}
 int main()
 {
 
