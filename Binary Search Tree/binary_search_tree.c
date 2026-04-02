@@ -46,7 +46,7 @@ NODE* delete(NODE* root,int value)
     // search for the value recursively
     else if(value<root->info)    root->left = delete(root->left,value);
     else if(value>root->info)   root->right = delete(root->right,value);
-    else
+    else    // when root is value (found)
     {
         
     }
