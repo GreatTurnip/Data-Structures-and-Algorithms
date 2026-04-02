@@ -46,9 +46,33 @@ NODE* delete(NODE* root,int value)
     // search for the value recursively
     else if(value<root->info)    root->left = delete(root->left,value);
     else if(value>root->info)   root->right = delete(root->right,value);
-    else    // when root is value (found)
+    else    // when root is value (found) inorder succesor method
     {
-        
+        NODE* ptr ; //declare a pointer for future use
+        if(root->left==NULL)
+        {
+            ptr = root;
+            root = root ->right; //update the root 
+            free(ptr);
+            return root;
+        }
+        else if(root->right==NULL)
+        {
+            ptr = root;
+            root = root->left;
+            free(ptr);
+            return root;
+        }
+        else
+        {
+            //inorder succesor//
+            ptr = root->left; // go to left root 
+            while(ptr->right!=NULL) //until the end find the righest node
+                ptr = ptr ->right;
+            root->info = ptr->info; //put the ptr info in it's respective position
+            root->left = delete(root->left,ptr->info); //delete the node
+            return root;
+        }
     }
 }
 int main()
