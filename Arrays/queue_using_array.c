@@ -25,10 +25,10 @@ void delete() //queue deletion starts from the front
     if(front==-1 && rear==-1)   printf("Empty Queue \n");
     else if(front>=0&&front==rear)  //only one element
     {
-        printf("deleted element : %d",Queue[front]);
+        printf("deleted element : %d\n",Queue[front]);
         front = rear = -1;
     }
-    else    printf("deleted element: %d",Queue[front++]); // IMPORTANT front must be updated(incremented)
+    else    printf("deleted element: %d\n",Queue[front++]); // IMPORTANT front must be updated(incremented)
 }
 int main()
 {

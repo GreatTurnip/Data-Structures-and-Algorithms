@@ -6,7 +6,7 @@ typedef struct node {
     struct node *next;
 } NODE;
 
-NODE* front,rear;
+NODE* front, *rear;
 void insert(int value)
 {
     NODE* newnode = (NODE*)malloc(sizeof(NODE));
@@ -24,13 +24,41 @@ void insert(int value)
 }
 void delete(int value)
 {
-    if(front=NULL)
+    if(front==NULL)
         printf("Empty Queue");
     else
     {
         NODE* ptr=front->next;
-        printf("Deleted element");
+        printf("Deleted element \n");
         free(front);
         front=ptr;
     }
+}
+void print()
+{
+    if(front==NULL)
+    {
+        printf("Empty Queue\n");
+        return;
+    }
+    NODE* ptr = front;
+    while(ptr != NULL)
+    {
+        printf("%d ", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+int main()
+{
+    insert(10);
+    insert(20);
+    insert(30);
+
+    delete(10);
+    delete(20);
+
+    print();
+
+    return 0;
 }
