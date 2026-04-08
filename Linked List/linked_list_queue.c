@@ -1,37 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+typedef struct node { //queue struct declaration
     int data;
     struct node *next;
 } NODE;
 
-NODE* front, *rear;
+NODE* front, *rear; //two pointer (rear for inserting & front for deleting)
 void insert(int value)
 {
-    NODE* newnode = (NODE*)malloc(sizeof(NODE));
+    NODE* newnode = (NODE*)malloc(sizeof(NODE)); //create new node
     newnode->data = value;
     newnode->next = NULL;
     if(front==NULL)
     {
-        front=rear=newnode;
+        front=rear=newnode; //if no node front and rear both are 
     }
     else
     {
-        rear->next = newnode;
-        rear = newnode;
+        rear->next = newnode; // set the next of rear as new node
+        rear = newnode; //set the rear as newnode
     }
 }
 void delete(int value)
 {
-    if(front==NULL)
+    if(front==NULL) //check if empty
         printf("Empty Queue");
     else
     {
-        NODE* ptr=front->next;
+        NODE* ptr=front->next;  //store the next adress of front as ptr
         printf("Deleted element \n");
-        free(front);
-        front=ptr;
+        free(front); //delete front
+        front=ptr; //set the ptr as new front
     }
 }
 void print()
