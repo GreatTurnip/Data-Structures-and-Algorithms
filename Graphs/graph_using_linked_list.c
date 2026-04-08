@@ -6,18 +6,19 @@ typedef struct node
     int info;
     struct node* next;
 } NODE;
-
+// GRAPH[] for storing head pointer of a list
+// u ---> v like structure
 void insertEdge(NODE* GRAPH[],int N,int u,int v)
 {
-    if(u>=0 && v>=0 && u<N && v<N) 
+    if(u>=0 && v>=0 && u<N && v<N) //check the bounds (necessary)
     {
         NODE *new = (NODE*)malloc(sizeof(NODE));
         new->info = v;
         new->next = NULL;
-        if(GRAPH[u]==NULL)  GRAPH[u]=new;
+        if(GRAPH[u]==NULL)  GRAPH[u]=new; //if no source . create a new source
         else 
         {
-            new->next = GRAPH[u];
+            new->next = GRAPH[u];   //update graph[u]
             GRAPH[u] = new;
         }
     }
@@ -25,27 +26,28 @@ void insertEdge(NODE* GRAPH[],int N,int u,int v)
 }
 void deleteEdge(NODE* GRAPH[],int N,int u,int v)
 {
-    if(GRAPH==NULL) return;
-    else if(GRAPH[u]->info==v)
+    if(GRAPH==NULL) return; //check if any graph exists
+    else if(GRAPH[u]->info==v) //if info is in the head pointer
     {
-        NODE* ptr = GRAPH[u];
-        GRAPH[u] = GRAPH[u]->next;
-        free(ptr);
+        NODE* ptr = GRAPH[u];   //store head pointer in ptr
+        GRAPH[u] = GRAPH[u]->next;  //step over the pointer
+        free(ptr);  //delete ptr
     }
     else{
-        NODE* cur = GRAPH[u]->next;
-        NODE* prev = GRAPH[u];
-        while(cur!=NULL)
+        NODE* cur = GRAPH[u]->next; //set cur to the graph->next
+        NODE* prev = GRAPH[u];  //set prev
+        while(cur!=NULL) //until the list is finished
         {
-            if(cur->info!=v)
+            if(cur->info!=v) //if not found
             {
+                //increment both cur and prev
                 prev = cur;
                 cur = cur->next;
             }
-            else
+            else    //found case
             {
-                prev->next = cur->next;
-                free(cur);
+                prev->next = cur->next; //memorise
+                free(cur); //free the cur 
                 return;
             }
         }
@@ -61,12 +63,12 @@ void searchEdge(NODE* GRAPH[],int N,int u,int v)
             NODE* cur = GRAPH[u];
             while(cur!=NULL)
             {
-                if(cur->info==v)
+                if(cur->info==v) //if found
                 {
                     printf("(%d,%d) Found!\n",u,v);
                     return;
                 }
-                else
+                else    //if not found stepover
                     cur = cur->next;
             }
         }
