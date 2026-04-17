@@ -26,7 +26,7 @@ NODE* insert(NODE* root, int value) //returns a pointer to a node and takes the 
 }
 void search(NODE* root, int value)
 {
-    if(root=NULL) return;
+    if(root==NULL) return;
     if(root->info==value)   printf("%d is present is the tree",root->info);
     if(value<root->info)    // search in the left tree
         search(root->left,value);
@@ -36,13 +36,14 @@ void search(NODE* root, int value)
 void display(NODE* root)
 {
     // this is the inorder print
+    if(root==NULL) return;
     if(root->left!=NULL)    display(root->left);
     printf("%d",root->info);
     if(root->right!=NULL)   display(root->right);
 }
 NODE* delete(NODE* root,int value)
 {
-    if(root==NULL) return; //there is no tree 
+    if(root==NULL) return NULL; //there is no tree 
     // search for the value recursively
     else if(value<root->info)    root->left = delete(root->left,value);
     else if(value>root->info)   root->right = delete(root->right,value);
