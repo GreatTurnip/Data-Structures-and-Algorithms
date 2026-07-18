@@ -56,5 +56,14 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "ROS2.distro": "lyrical",
+  "python.autoComplete.extraPaths": [
+    "/opt/ros/lyrical/opt/gz_math_vendor/lib/python",
+    "/opt/ros/lyrical/lib/python3.14/site-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/opt/ros/lyrical/opt/gz_math_vendor/lib/python",
+    "/opt/ros/lyrical/lib/python3.14/site-packages"
+  ]
 }
