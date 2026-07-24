@@ -17,7 +17,7 @@ int main()
     }
     const int max = INT_MAX;
     vector<vector<int>> dp(n+1);
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i <= n; i++)
     {
         dp[i].resize(amount + 1, max);
     }
