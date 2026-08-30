@@ -9,7 +9,7 @@ vector <int> queenCol(n); // queenCol[row] = column [row, column] is the exact q
 // used to check whether this position is safe or not
 
 bool isSafe(int row, int column)
-{
+{  
     for(int i = 1; i < row; i++)
     {
         // same column or same diagonal check
