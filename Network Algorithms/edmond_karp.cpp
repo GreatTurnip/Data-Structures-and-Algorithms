@@ -72,7 +72,7 @@ int edmond_karp(int graph[V][V], int s, int t)
             u = parent[v];
 
             residual_graph[u][v] -= path_flow;
-            residual_graph[u][v] += path_flow;
+            residual_graph[v][u] += path_flow;
         }
 
         max_flow += path_flow;
@@ -92,7 +92,7 @@ int main()
             { 0, 0,   0, 0,  0, 0 } };
 
     cout << "The maximum possible flow is "
-         << edmond_karp(graph, 0, 5);
+         << edmond_karp(graph, 0, 5) << endl;
 
     return 0;
 }
