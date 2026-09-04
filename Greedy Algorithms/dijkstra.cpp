@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int INF = INT32_MAX;
+const int INF = __INT_MAX__;
 
 int main()
 {
